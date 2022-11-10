@@ -23,7 +23,7 @@ namespace OOP_Labb_4
             Console.WriteLine("WRITING EMPLOYEES:");//Writing all values of PersonalStack and counting
             foreach (Employee item in Personal) 
             {
-                Console.WriteLine(Environment.NewLine + "-ID:{0}, Name:{1}, Gender:{2},  Salary:{3}", item.id, item.name, item.gender, item.salary);
+                Console.WriteLine("\n- ID:{0}, Name:{1}, Gender:{2},  Salary:{3}", item.id, item.name, item.gender, item.salary);
                 Console.WriteLine("Employees:{0}" , Personal.Count);
             }
             Console.WriteLine();
@@ -49,14 +49,14 @@ namespace OOP_Labb_4
 
             Console.WriteLine("Peeking:");//Using Peek to peek, two times. Same result Though
             Employee peek = Personal.Peek();
-            Console.WriteLine(Environment.NewLine + "ID: {0}, Name: {1} ", peek.id, peek.name);
+            Console.WriteLine("\nID: {0}, Name: {1} ", peek.id, peek.name);
             Console.WriteLine("Employees after peeking: {0}", Personal.Count);
 
             Employee peek2 = Personal.Peek();
-            Console.WriteLine(Environment.NewLine + "ID: {0}, Name: {1} ", peek2.id, peek2.name);
+            Console.WriteLine("\nID: {0}, Name: {1} ", peek2.id, peek2.name);
             Console.WriteLine("Employees after peeking: {0}", Personal.Count);
 
-            Console.WriteLine(Environment.NewLine+"Checking:");
+            Console.WriteLine("\nChecking:");
             if (Personal.Contains(Cerberus)) //Kollar om stacken Personal innehåller Cerberus
             { 
                 Console.WriteLine(Cerberus.name+" exists in stack");
@@ -83,14 +83,13 @@ namespace OOP_Labb_4
             else { Console.WriteLine(NotLast.name+" object does not exist in the list"); }
 
             Console.WriteLine();
-            var man = AnLista.Find(e => e.gender == "M"); //Letar efter första objektet som är M/Male
-            Console.WriteLine("Found the Male: -"+man.name+Environment.NewLine); //Skriver ut det
-
+            Employee man = AnLista.Find(e => e.gender == "M"); //Letar efter första objektet som är M/Male
+            Console.WriteLine("Found the Male: -"+man.name+"\n"); //Skriver ut det
             Console.WriteLine("Found All males:");          //Letar efter alla Males och skriver ut dem
-            var men = AnLista.FindAll(e => e.gender == "M");
-            foreach(var m in men)
+            List<Employee> men = AnLista.FindAll(e => e.gender == "M");
+            foreach(Employee item in men)
             {
-                Console.WriteLine("-"+m.gender + " : " + m.name);
+                Console.WriteLine("-"+ item.gender + " : " + item.name);
             }
         }
     }
